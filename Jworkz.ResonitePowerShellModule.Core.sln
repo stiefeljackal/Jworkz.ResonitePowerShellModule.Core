@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1AF6715-5327-407E-A645-00E900D9314B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		Default.props = Default.props
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jworkz.ResonitePowerShellModule.Core", "Lib\Jworkz.ResonitePowerShellModule.Core.csproj", "{C05F925F-34EE-490A-9A74-34BE460AC733}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jworkz.ResonitePowerShellModule.Core.Test", "Test\Jworkz.ResonitePowerShellModule.Core.Test.csproj", "{40550CA5-5C78-4B35-889D-947780F46EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jworkz.ResonitePowerShellModule.Core.Mocks", "Mocks\Jworkz.ResonitePowerShellModule.Core.Mocks.csproj", "{52A002AE-430F-46A0-869C-C13B0FFCFEE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C05F925F-34EE-490A-9A74-34BE460AC733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05F925F-34EE-490A-9A74-34BE460AC733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05F925F-34EE-490A-9A74-34BE460AC733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05F925F-34EE-490A-9A74-34BE460AC733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40550CA5-5C78-4B35-889D-947780F46EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40550CA5-5C78-4B35-889D-947780F46EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40550CA5-5C78-4B35-889D-947780F46EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40550CA5-5C78-4B35-889D-947780F46EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {709B7D2A-EEFC-47B0-98D4-3EF13455DD32}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Utilities\NewFolder\**" />
+    <EmbeddedResource Remove="Utilities\NewFolder\**" />
+    <None Remove="Utilities\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ExternalLibraries" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Elements.Core">
+      <HintPath>$(SolutionDir)ExternalLibraries\Elements.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Elements.Assets">
+      <HintPath>$(SolutionDir)ExternalLibraries\Elements.Assets.dll</HintPath>
+    </Reference>
+    <Reference Include="Skyfrost.Base">
+      <HintPath>$(SolutionDir)ExternalLibraries\Skyfrost.Base.dll</HintPath>
+    </Reference>
+	<Reference Include="Hardware.Info">
+	  <HintPath>$(SolutionDir)ExternalLibraries\Hardware.Info.dll</HintPath>
+	</Reference>
+	<Reference Include="SignalR.Strong">
+	  <HintPath>$(SolutionDir)ExternalLibraries\SignalR.Strong.dll</HintPath>
+	</Reference>
+	<Content Include="$(SolutionDir)ExternalLibraries\FreeImage.dll" CopyToOutputDirectory="Always" />
+	<Content Include="$(SolutionDir)ExternalLibraries\crnlib.dll" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Enums.NET" Version="4.0.1" />
+	  <PackageReference Include="Microsoft.AspNetCore.Connections.Abstractions" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Connections.Client" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Connections.Common" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+	  <PackageReference Include="Microsoft.Bcl.TimeProvider" Version="8.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Mime-Detective" Version="23.10.1">
+      <GeneratePathProperty>True</GeneratePathProperty>
+    </PackageReference>
+    <PackageReference Include="Mime-Detective.Definitions.Exhaustive" Version="23.10.1">
+      <GeneratePathProperty>True</GeneratePathProperty>
+    </PackageReference>
+    <PackageReference Include="Otp.NET" Version="1.3.0" />
+    <PackageReference Include="System.Management.Automation" Version="7.4.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="8.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+  </ItemGroup>
+
+</Project>

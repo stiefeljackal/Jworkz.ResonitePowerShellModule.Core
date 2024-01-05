@@ -1,0 +1,21 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ResonitePath>$(MSBuildThisFileDirectory)Resonite</ResonitePath>
+		<ResonitePath Condition="Exists('C:\Program Files (x86)\Steam\steamapps\common\Resonite\')">C:\Program Files (x86)\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('D:\Program Files (x86)\Steam\steamapps\common\Resonite\')">D:\Program Files (x86)\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('E:\Program Files (x86)\Steam\steamapps\common\Resonite\')">E:\Program Files (x86)\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('C:\SteamLibrary\steamapps\common\Resonite\')">C:\SteamLibrary\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('D:\SteamLibrary\steamapps\common\Resonite\')">D:\SteamLibrary\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('E:\SteamLibrary\steamapps\common\Resonite\')">E:\SteamLibrary\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('C:\Programs\Steam\steamapps\common\Resonite')">C:\Programs\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('D:\Programs\Steam\steamapps\common\Resonite')">D:\Programs\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('E:\Programs\Steam\steamapps\common\Resonite')">E:\Programs\Steam\steamapps\common\Resonite\</ResonitePath>
+		<ResonitePath Condition="Exists('$(HOME)/.steam/steam/steamapps/common/Resonite/')">$(HOME)/.steam/steam/steamapps/common/Resonite/</ResonitePath>
+	</PropertyGroup>
+</Project>
