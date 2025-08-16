@@ -22,7 +22,7 @@ public class BasePSCmdlet : PSCmdlet
         try
         {
             base.BeginProcessing();
-            PrepareCmdlet();
+            PerformPreprocessSetup();
         }
         catch (PipelineStoppedException) { throw; }
         catch (Exception ex)
@@ -33,7 +33,16 @@ public class BasePSCmdlet : PSCmdlet
 
     protected override sealed void EndProcessing()
     {
+        try
+        {
         base.EndProcessing();
+            CleanUpCmdlet();
+        }
+        catch (PipelineStoppedException) { throw; }
+        catch (Exception ex)
+        {
+            ExamineThrownException(ex);
+        }
     }
 
     /// <summary>
@@ -52,9 +61,30 @@ public class BasePSCmdlet : PSCmdlet
     protected bool HasIgnoreErrorAction() =>
         IsParamSpecified("ErrorAction") && ErrorActionSpecified == "ignore";
 
+    /// <summary>
+    /// Performs any necessary setup during the begin process phase. This is usually
+    /// to check if connections are established or other preconditions are met without
+    /// any dependency on the parameters passed to the cmdlet.
+    /// </summary>
+    protected virtual void PerformPreprocessSetup() { }
+
+    /// <summary>
+    /// Prepares the cmdlet for execution during the process phase. This is usually
+    /// to check if the parameters passed to the cmdlet are valid.
+    /// </summary>
     protected virtual void PrepareCmdlet() { }
 
+    /// <summary>
+    /// Executes the main logic of the cmdlet during the process phase. This method 
+    /// should contain the core functionality the cmdlet and should be overridden in 
+    /// derived classes.
+    /// </summary>
     protected virtual void ExecuteCmdlet() { }
+
+    /// <summary>
+    /// Performs any necessary cleanup during the end process phase.
+    /// </summary>
+    protected virtual void CleanUpCmdlet() { }
 
     protected override sealed void ProcessRecord()
     {
@@ -62,6 +92,7 @@ public class BasePSCmdlet : PSCmdlet
 
         try
         {
+            PrepareCmdlet();
             ExecuteCmdlet();
         }
         catch (PipelineStoppedException) { throw; }
