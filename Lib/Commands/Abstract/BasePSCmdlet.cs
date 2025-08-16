@@ -20,7 +20,14 @@ public class BasePSCmdlet : PSCmdlet
         get => MyInvocation.BoundParameters["ErrorAction"].ToString()?.ToLowerInvariant();
     }
 
+    public string CurrentLocation
+    {
+        get => PSState.GetCurrentPwd() ?? string.Empty;
+    }
+
     public IFileSystem FileSystem { get; private set; }
+
+    public IPSState PSState { get; set; }
 
     public BasePSCmdlet() : this(new FileSystem())
     {
@@ -29,6 +36,7 @@ public class BasePSCmdlet : PSCmdlet
     public BasePSCmdlet(IFileSystem fileSystem)
     {
         FileSystem = fileSystem;
+        PSState = new PSState(() => SessionState);
     }
 
     protected override sealed void BeginProcessing()
