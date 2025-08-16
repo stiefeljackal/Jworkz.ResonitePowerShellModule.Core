@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jworkz.ResonitePowerShellModule.Mocks;
+namespace Jworkz.ResonitePowerShellModule.Core.Mocks;
 
 /// <summary>
 /// A mock stream mainly used for unit tests. This is based on the NullStream

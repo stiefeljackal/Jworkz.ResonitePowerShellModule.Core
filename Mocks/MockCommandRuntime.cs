@@ -2,7 +2,7 @@
 using System.Management.Automation;
 using System.Management.Automation.Host;
 
-namespace Jworkz.ResonitePowerShellModule.Mocks;
+namespace Jworkz.ResonitePowerShellModule.Core.Mocks;
 
 /// <summary>
 /// Mock implementation

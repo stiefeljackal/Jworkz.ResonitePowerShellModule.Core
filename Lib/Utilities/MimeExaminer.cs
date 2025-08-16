@@ -8,7 +8,7 @@ namespace Jworkz.ResonitePowerShellModule.Core.Utilities;
 
 public static class MimeExaminer
 {
-    private static ContentInspector _inspector;
+    private static IContentInspector _inspector;
 
     private static MimeTypeToFileExtensionLookup _mimeToFileExtensions;
 
