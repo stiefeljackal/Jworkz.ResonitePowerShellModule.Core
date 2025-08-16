@@ -8,15 +8,6 @@ namespace Jworkz.ResonitePowerShellModule.Core.Utilities;
 public static class CmdletExtensions
 {
     /// <summary>
-    /// Writes an error record stating the password is null or empty
-    /// </summary>
-    /// <param name="cmdlet">Cmdlet that will write the error record</param>
-    public static void WritePasswordEmptyOrNullError(this Cmdlet cmdlet)
-    {
-        cmdlet.WriteError(new ErrorRecord(new Exception("Provided password is empty or null"), "PWDEMPTYORNULL", ErrorCategory.AuthenticationError, cmdlet));
-    }
-
-    /// <summary>
     /// Writes an error record stating the provided credential object is null
     /// </summary>
     /// <param name="cmdlet">Cmdlet that will write the error record</param>

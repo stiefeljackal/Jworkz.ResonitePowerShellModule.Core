@@ -9,7 +9,5 @@ namespace Jworkz.ResonitePowerShellModule.Core.Utilities;
 
 public static class CommonRegex
 {
-    public static readonly Regex RecordPostfixIdRegex = new("^R\\-[0-9A-F]{8}\\-([0-9A-F]{4}\\-){3}[0-9A-F]{12}", RegexOptions.Compiled);
-
-    public static readonly Regex RecordUriRegex = new("^resrec://", RegexOptions.Compiled);
+    public static readonly Regex RecordIdRegex = new(@"^((?<ownerId>[UGM]\-.+)/)?(?<rid>R\-[\w\-_]+)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }

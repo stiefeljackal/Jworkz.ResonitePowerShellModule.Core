@@ -1,43 +1,18 @@
-﻿using System.Collections.Immutable;
-using MimeDetective;
-using MimeDetective.Engine;
-using MimeDetective.Storage;
-using MimeDefinitions = MimeDetective.Definitions;
+﻿using MimeDetective;
 
 namespace Jworkz.ResonitePowerShellModule.Core.Utilities;
 
 public static class MimeExaminer
 {
-    private static IContentInspector _inspector;
 
-    private static MimeTypeToFileExtensionLookup _mimeToFileExtensions;
+    public static FileType? Inspect(Stream stream) => stream.GetFileType();
 
-    static MimeExaminer()
+    public static FileType? Inspect(byte[] bytes) => MimeTypes.GetFileType(bytes);
+
+    public static string GetExtension(this FileType? fileType)
     {
-        var defs = new MimeDefinitions.ExhaustiveBuilder()
+        var extension = fileType?.Extension ?? string.Empty;
 
-        {
-            UsageType = MimeDefinitions.Licensing.UsageType.CommercialPaid
-        
-        }
-            .Build()
-            .TrimMeta()
-            .TrimDescription()
-            .ToImmutableArray();
-
-        _inspector = new ContentInspectorBuilder()
-        {
-            Definitions = defs,
-            Parallel = true
-        }.Build();
-
-        _mimeToFileExtensions = new MimeTypeToFileExtensionLookupBuilder()
-        {
-            Definitions = defs
-        }.Build();
+        return extension.Split(',').First();
     }
-
-    public static IEnumerable<DefinitionMatch> Inspect(Stream stream) => _inspector.Inspect(stream);
-
-    public static IEnumerable<DefinitionMatch> Inspect(byte[] bytes) => _inspector.Inspect(bytes);
 }

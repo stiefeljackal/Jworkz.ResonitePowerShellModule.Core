@@ -67,14 +67,15 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Mime-Detective">
+      <HintPath>$(ResonitePath)Resonite_Data\Managed\MimeDetective.dll</HintPath>
+    </Reference>
     <Reference Include="Otp.NET">
       <HintPath>$(ResonitePath)Resonite_Data\Managed\Otp.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mime-Detective" Version="25.8.1" />
-    <PackageReference Include="Mime-Detective.Definitions.Exhaustive" Version="25.8.1" />
     <PackageReference Include="System.Management.Automation" Version="7.5.0" />
     <PackageReference Include="System.Text.Json" Version="9.0.1" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="9.0.1" />
