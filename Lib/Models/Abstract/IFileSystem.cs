@@ -11,4 +11,6 @@ public interface IFileSystem
     FileType? GetFileType(byte[]? bytes);
 
     FileType? GetFileType(Stream stream);
+
+    void RenameFile(string oldPath, string newPath, bool overwrite);
 }

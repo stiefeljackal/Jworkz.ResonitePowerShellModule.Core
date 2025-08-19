@@ -17,4 +17,6 @@ internal class FileSystem : IFileSystem
     public FileType? GetFileType(byte[]? bytes) => MimeExaminer.Inspect(bytes ?? Array.Empty<byte>());
 
     public FileType? GetFileType(Stream stream) => MimeExaminer.Inspect(stream);
+
+    public void RenameFile(string oldPath, string newPath, bool overwrite) => File.Move(oldPath, newPath, overwrite);
 }
