@@ -131,7 +131,7 @@ public abstract class BasePSCmdlet : PSCmdlet
         }
     }
 
-    internal void StartProcessExecution()
+    public void StartProcessExecution()
     {
         BeginProcessing();
         ProcessRecord();
