@@ -15,4 +15,6 @@ internal class FileSystem : IFileSystem
     public Stream CreateFileStream(string path, FileMode fileMode) => new FileStream(path, fileMode);
 
     public FileType? GetFileType(byte[]? bytes) => MimeExaminer.Inspect(bytes ?? Array.Empty<byte>());
+
+    public FileType? GetFileType(Stream stream) => MimeExaminer.Inspect(stream);
 }

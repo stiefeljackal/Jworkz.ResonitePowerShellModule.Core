@@ -5,7 +5,12 @@ namespace Jworkz.ResonitePowerShellModule.Core.Utilities;
 public static class MimeExaminer
 {
 
-    public static FileType? Inspect(Stream stream) => stream.GetFileType();
+    public static FileType? Inspect(Stream stream) {
+        var fileType = stream.GetFileType();
+        stream.Position = 0;
+
+        return fileType;
+    }
 
     public static FileType? Inspect(byte[] bytes) => MimeTypes.GetFileType(bytes);
 

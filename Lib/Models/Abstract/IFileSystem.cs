@@ -9,4 +9,6 @@ public interface IFileSystem
     Stream CreateFileStream(string path, FileMode fileMode);
 
     FileType? GetFileType(byte[]? bytes);
+
+    FileType? GetFileType(Stream stream);
 }
