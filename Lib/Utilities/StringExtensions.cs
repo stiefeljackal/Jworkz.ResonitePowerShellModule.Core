@@ -1,4 +1,5 @@
 ﻿using System.Management.Automation;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -12,6 +13,30 @@ public static class StringExtensions
     /// Regex that matches query param strings as found in URLs
     /// </summary>
     public static readonly Regex QueryParamRegex = new Regex(@"(?<key>[\w_-]+)=(?<value>[\w_-]+)", RegexOptions.Compiled);
+
+    /// <summary>
+    /// Checks if the given string is a user id.
+    /// </summary>
+    /// <param name="str">String to check</param>
+    /// <returns>true if the provided string is a user id; otherwise, false</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool IsUserId(this string str) => str.StartsWith("U-");
+
+    /// <summary>
+    /// Checks if the given string is a group id.
+    /// </summary>
+    /// <param name="str">String to check</param>
+    /// <returns>true if the provided string is a group id; otherwise, false</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool IsGroupId(this string str) => str.StartsWith("G-");
+
+    /// <summary>
+    /// Checks if the given string is a machine id.
+    /// </summary>
+    /// <param name="str">String to check</param>
+    /// <returns>true if the provided string is a machine id; otherwise, false</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static bool IsMachineId(this string str) => str.StartsWith("M-");
 
     /// <summary>
     /// Converts string to a SecureString object
