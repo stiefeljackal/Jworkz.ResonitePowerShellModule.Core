@@ -8,6 +8,10 @@ public interface IFileSystem
 
     Stream CreateFileStream(string path, FileMode fileMode);
 
+    bool DirectoryExists(string path);
+
+    void CreateDirectory(string path);
+
     FileType? GetFileType(byte[]? bytes);
 
     FileType? GetFileType(Stream stream);
