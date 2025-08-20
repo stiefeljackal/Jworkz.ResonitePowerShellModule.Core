@@ -36,6 +36,15 @@ public abstract class BasePSCmdlet : PSCmdlet
 
     public IPSState PSState { get; set; }
 
+    /// <summary>
+    /// Indicates if the Verbose parameter was specified.
+    /// </summary>
+    /// <remarks>
+    /// This is usually set by the cmdlet; however, this can also be set
+    /// programatically.
+    /// </remarks>
+    public bool IsVerboseSpecified { get; set; } = false;
+
     public BasePSCmdlet() : this(new FileSystem())
     {
     }
@@ -48,6 +57,8 @@ public abstract class BasePSCmdlet : PSCmdlet
 
     protected override sealed void BeginProcessing()
     {
+        IsVerboseSpecified |= IsParamSpecified("Verbose");
+
         try
         {
             base.BeginProcessing();
@@ -209,12 +220,10 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// method when you need to ensure that all log entries are handled during the execution of a task.</remarks>
     /// <typeparam name="T">The type of the result produced by the <see cref="ValueTask{T}"/>.</typeparam>
     /// <param name="task">The <see cref="ValueTask{T}"/> to bind to the UniLog system.</param>
-    /// <param name="isVerboseEnabled">A value indicating whether verbose logging is enabled.  If <see langword="true"/>, verbose log entries will be
-    /// processed; otherwise, they will be ignored.</param>
     /// <returns>The original <see cref="ValueTask{T}"/> for further chaining or awaiting.</returns>
     protected ValueTask<T> BindTaskToUniLog<T>(ValueTask<T> task, bool isVerboseEnabled = false)
     {
-        BindTaskToUniLog(task.AsTask(), isVerboseEnabled);
+        BindTaskToUniLog(task.AsTask());
         return task;
     }
 
@@ -227,14 +236,12 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// method when you need to ensure that all log entries are handled during the execution of a task.</remarks>
     /// <typeparam name="T">The type of the task, which must derive from <see cref="Task"/>.</typeparam>
     /// <param name="task">The task to bind to the UniLog system.</param>
-    /// <param name="isVerboseEnabled">A value indicating whether verbose logging is enabled.  If <see langword="true"/>, verbose log entries will be
-    /// processed; otherwise, they will be ignored.</param>
     /// <returns>The original task for further chaining or awaiting.</returns>
-    protected T BindTaskToUniLog<T>(T task, bool isVerboseEnabled = false) where T : Task
+    protected T BindTaskToUniLog<T>(T task) where T : Task
     {
         ArgumentNullException.ThrowIfNull(task, nameof(task));
 
-        BindToUniLog(isVerboseEnabled);
+        BindToUniLog(IsVerboseSpecified);
         while (!task.IsCompleted || WRITE_QUEUE.Count > 0)
         {
             if (WRITE_QUEUE.TryDequeue(out var entry))
