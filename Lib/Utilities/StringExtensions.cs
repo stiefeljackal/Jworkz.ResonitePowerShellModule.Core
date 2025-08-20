@@ -101,12 +101,12 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">The string to check.</param>
     /// <param name="msg">The exception message.</param>
-    /// <exception cref="PSArgumentException"></exception>
+    /// <exception cref="ArgumentException"></exception>
     public static void ThrowOnNullOrEmpty(this string? str, string msg)
     {
         if (string.IsNullOrEmpty(str))
         {
-            throw new PSArgumentException(msg);
+            throw new ArgumentException(msg);
         }
     }
 
@@ -115,12 +115,12 @@ public static class StringExtensions
     /// </summary>
     /// <param name="uri">The uri to check.</param>
     /// <param name="msg">The exception message.</param>
-    /// <exception cref="PSArgumentException"></exception>
+    /// <exception cref="ArgumentException"></exception>
     public static void ThrowOnNullOrEmpty(this Uri? uri, string msg)
     {
         if (uri == null)
         {
-            throw new PSArgumentException(msg);
+            throw new ArgumentException(msg);
         }
     }
 
@@ -131,12 +131,12 @@ public static class StringExtensions
     /// <param name="pattern">The regex pattern that the string needs to follow.</param>
     /// <param name="msg">The exception message.</param>
     /// <param name="allowNullOrEmpty">Whether or not to allow null or empty strings.</param>
-    /// <exception cref="PSArgumentException"></exception>
+    /// <exception cref="ArgumentException"></exception>
     public static void ThrowOnInvalidPattern(this string? str, Regex pattern, string msg, bool allowNullOrEmpty = false)
     {
         if (!allowNullOrEmpty && !pattern.IsMatch(str ?? string.Empty))
         {
-            throw new PSArgumentException(msg);
+            throw new ArgumentException(msg);
         }
     }
 
@@ -147,7 +147,7 @@ public static class StringExtensions
     /// <param name="pattern">The regex pattern that the string needs to follow.</param>
     /// <param name="msg">The exception message.</param>
     /// <param name="allowNullOrEmpty">Whether or not to allow null or empty strings.</param>
-    /// <exception cref="PSArgumentException"></exception>
+    /// <exception cref="ArgumentException"></exception>
     public static void ThrowOnInvalidPattern(this Uri? uri, Regex pattern, string msg, bool allowNullOrEmpty = false)
     {
         (uri?.ToString() ?? string.Empty).ThrowOnInvalidPattern(pattern, msg, allowNullOrEmpty);
