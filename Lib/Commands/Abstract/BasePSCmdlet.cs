@@ -45,6 +45,14 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// </remarks>
     public bool IsVerboseSpecified { get; set; } = false;
 
+    static BasePSCmdlet()
+    {
+        var noop = (string msg) => { };
+        UniLog.OnError += noop;
+        UniLog.OnLog += noop;
+        UniLog.OnWarning += noop;
+    }
+
     public BasePSCmdlet() : this(new FileSystem())
     {
     }
