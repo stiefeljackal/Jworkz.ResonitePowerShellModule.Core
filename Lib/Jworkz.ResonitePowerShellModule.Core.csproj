@@ -7,79 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Utilities\NewFolder\**" />
-    <EmbeddedResource Remove="Utilities\NewFolder\**" />
-    <None Remove="Utilities\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="Elements.Core">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Elements.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Elements.Assets">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Elements.Assets.dll</HintPath>
-    </Reference>
-    <Reference Include="Skyfrost.Base">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Skyfrost.Base.dll</HintPath>
-    </Reference>
-    <Reference Include="Hardware.Info">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Hardware.Info.dll</HintPath>
-    </Reference>
-    <Reference Include="SignalR.Strong">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\SignalR.Strong.dll</HintPath>
-    </Reference>
-    <Reference Include="Enums.NET">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Enums.NET.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Connections.Abstractions">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.Connections.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Connections.Client">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.Http.Connections.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Connections.Common">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.Http.Connections.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.SignalR.Client">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.SignalR.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.SignalR.Client.Core">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.SignalR.Client.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.SignalR.Common">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.SignalR.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.SignalR.Protocols.Json">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.SignalR.Protocols.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.AspNetCore.SignalR.Protocols.MessagePack.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.HashCode">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.Bcl.HashCode.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.TimeProvider">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.Bcl.TimeProvider.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <HintPath>$(ResonitePath)Elements.Core.dll</HintPath>
     </Reference>
     <Reference Include="Mime-Detective">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\MimeDetective.dll</HintPath>
-    </Reference>
-    <Reference Include="Otp.NET">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Otp.NET.dll</HintPath>
+      <HintPath>$(ResonitePath)MimeDetective.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Management.Automation" Version="7.5.0" />
-    <PackageReference Include="System.Text.Json" Version="9.0.1" />
-    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="9.0.1" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.0" />
+    <PackageReference Include="System.Management.Automation" />
   </ItemGroup>
 
 </Project>

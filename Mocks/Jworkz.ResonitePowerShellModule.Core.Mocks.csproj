@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="../Default.props"/>
+  <Import Project="../Default.props" />
 
   <ItemGroup>
-    <PackageReference Include="System.Management.Automation" Version="7.5.0" />
+    <PackageReference Include="System.Management.Automation" />
   </ItemGroup>
 
 </Project>
