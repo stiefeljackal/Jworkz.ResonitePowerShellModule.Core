@@ -60,6 +60,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="str">String to convert</param>
     /// <returns>String as a byte[]</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static byte[]? ToBytes(this string str) => str == null ? null : Encoding.Unicode.GetBytes(str);
 
     /// <summary>
@@ -67,6 +68,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="secureStr">SecureString to convert</param>
     /// <returns>SecureString as a byte[]</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static byte[]? ToBytes(this SecureString secureStr) => secureStr.ToPlainText().ToBytes();
 
     /// <summary>
@@ -74,6 +76,7 @@ public static class StringExtensions
     /// </summary>
     /// <param name="secureStr">SecureString object to convert to plain text</param>
     /// <returns>SecureString as plain text</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string ToPlainText(this SecureString secureStr) =>
         Marshal.PtrToStringAuto(Marshal.SecureStringToBSTR(secureStr)) ?? string.Empty;
 
@@ -147,8 +150,7 @@ public static class StringExtensions
     /// <param name="msg">The exception message.</param>
     /// <param name="allowNullOrEmpty">Whether or not to allow null or empty strings.</param>
     /// <exception cref="ArgumentException"></exception>
-    public static void ThrowOnInvalidPattern(this Uri? uri, Regex pattern, string msg, bool allowNullOrEmpty = false)
-    {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void ThrowOnInvalidPattern(this Uri? uri, Regex pattern, string msg, bool allowNullOrEmpty = false) =>
         (uri?.ToString() ?? string.Empty).ThrowOnInvalidPattern(pattern, msg, allowNullOrEmpty);
     }
-}
