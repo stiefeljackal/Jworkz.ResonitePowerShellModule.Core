@@ -15,6 +15,11 @@ public abstract class BasePSCmdlet : PSCmdlet
 {
     private const int WRITE_OBJ_QUEUE_WAIT_DELAY = 100;
 
+    private static readonly HashSet<string> NonExceptionThrowingActionNames =
+    [
+        "stop", "ignore", "silentlycontinue"
+    ];
+
     private static readonly ConcurrentQueue<(string Type, string Message)> WRITE_QUEUE = new();
 
     private bool _hasError = false;
@@ -24,9 +29,27 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// </summary>
     public string? ErrorActionSpecified
     {
-        get => MyInvocation.BoundParameters["ErrorAction"].ToString()?.ToLowerInvariant();
+        get
+        {
+            var hasValue = MyInvocation.BoundParameters.TryGetValue("ErrorAction", out object? errAction);
+            var actionStr = string.Empty;
+
+            if (hasValue)
+            {
+                actionStr = errAction?.ToString();
+            }
+            else
+            {
+                SessionState.PSVariable.GetValue("ErrorActionPreferance")?.TryGetString(out actionStr);
+            }
+
+            return actionStr?.ToLowerInvariant() ?? string.Empty;
+        }
     }
 
+    /// <summary>
+    /// Get the current working directory that this command was ran under.
+    /// </summary>
     public string CurrentLocation
     {
         get => PSState.GetCurrentPwd() ?? string.Empty;
@@ -103,11 +126,11 @@ public abstract class BasePSCmdlet : PSCmdlet
         return MyInvocation.BoundParameters.ContainsKey(paramName);
     }
 
-    protected bool HasStoppingErrorAction() =>
-        IsParamSpecified("ErrorAction") && (new[] { "stop", "ignore", "silentlycontinue" }).Contains(ErrorActionSpecified);
+    protected bool HasExceptionThrowingErrorAction() =>
+        !string.IsNullOrEmpty(ErrorActionSpecified) && !NonExceptionThrowingActionNames.Contains(ErrorActionSpecified);
 
     protected bool HasIgnoreErrorAction() =>
-        IsParamSpecified("ErrorAction") && ErrorActionSpecified == "ignore";
+        !string.IsNullOrEmpty(ErrorActionSpecified) && ErrorActionSpecified == "ignore";
 
     /// <summary>
     /// Performs any necessary setup during the begin process phase. This is usually
@@ -134,6 +157,9 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// </summary>
     protected virtual void CleanUpCmdlet() { }
 
+    /// <summary>
+    /// Performs the command preparation and execution.
+    /// </summary>
     protected override sealed void ProcessRecord()
     {
         if (_hasError) { return; }
@@ -150,6 +176,9 @@ public abstract class BasePSCmdlet : PSCmdlet
         }
     }
 
+    /// <summary>
+    /// Starts the entire processing phase for the cmdlet.
+    /// </summary>
     public void StartProcessExecution()
     {
         BeginProcessing();
@@ -157,6 +186,7 @@ public abstract class BasePSCmdlet : PSCmdlet
         EndProcessing();
     }
 
+    /// <inheritdoc/>
     protected override void StopProcessing()
     {
         base.StopProcessing();
@@ -208,7 +238,7 @@ public abstract class BasePSCmdlet : PSCmdlet
     {
         _hasError = true;
 
-        if (!HasStoppingErrorAction())
+        if (HasExceptionThrowingErrorAction())
         {
             throw new PSInvalidOperationException(ex.Message);
         }

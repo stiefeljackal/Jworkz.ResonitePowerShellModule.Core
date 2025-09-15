@@ -98,6 +98,13 @@ public static class StringExtensions
         return sb.ToString();
     }
 
+    public static bool TryGetString(this object obj, out string result)
+    {
+        result = obj?.ToString() ?? string.Empty;
+
+        return result != null;
+    }
+
     /// <summary>
     /// Throws an exception if the provided string is null or empty.
     /// </summary>
@@ -153,4 +160,4 @@ public static class StringExtensions
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ThrowOnInvalidPattern(this Uri? uri, Regex pattern, string msg, bool allowNullOrEmpty = false) =>
         (uri?.ToString() ?? string.Empty).ThrowOnInvalidPattern(pattern, msg, allowNullOrEmpty);
-    }
+}
