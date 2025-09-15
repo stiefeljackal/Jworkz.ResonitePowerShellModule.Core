@@ -126,11 +126,9 @@ public abstract class BasePSCmdlet : PSCmdlet
         return MyInvocation.BoundParameters.ContainsKey(paramName);
     }
 
-    protected bool HasExceptionThrowingErrorAction() =>
-        !string.IsNullOrEmpty(ErrorActionSpecified) && !NonExceptionThrowingActionNames.Contains(ErrorActionSpecified);
+    protected bool HasExceptionThrowingErrorAction() => !NonExceptionThrowingActionNames.Contains(ErrorActionSpecified!);
 
-    protected bool HasIgnoreErrorAction() =>
-        !string.IsNullOrEmpty(ErrorActionSpecified) && ErrorActionSpecified == "ignore";
+    protected bool HasIgnoreErrorAction() => ErrorActionSpecified == "ignore";
 
     /// <summary>
     /// Performs any necessary setup during the begin process phase. This is usually
