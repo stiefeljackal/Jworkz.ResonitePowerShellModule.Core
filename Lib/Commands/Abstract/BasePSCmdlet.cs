@@ -27,7 +27,7 @@ public abstract class BasePSCmdlet : PSCmdlet
     /// <summary>
     /// Error action specified for this cmdlet if called
     /// </summary>
-    public string? ErrorActionSpecified
+    public string ErrorActionSpecified
     {
         get
         {
@@ -40,7 +40,7 @@ public abstract class BasePSCmdlet : PSCmdlet
             }
             else
             {
-                SessionState.PSVariable.GetValue("ErrorActionPreferance")?.TryGetString(out actionStr);
+                SessionState?.PSVariable.GetValue("ErrorActionPreferance")?.TryGetString(out actionStr);
             }
 
             return actionStr?.ToLowerInvariant() ?? string.Empty;
