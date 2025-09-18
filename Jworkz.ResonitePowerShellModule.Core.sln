@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jworkz.ResonitePowerShellMo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jworkz.ResonitePowerShellModule.Core.Test", "Test\Jworkz.ResonitePowerShellModule.Core.Test.csproj", "{40550CA5-5C78-4B35-889D-947780F46EC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jworkz.ResonitePowerShellModule.Core.Mocks", "Mocks\Jworkz.ResonitePowerShellModule.Core.Mocks.csproj", "{52A002AE-430F-46A0-869C-C13B0FFCFEE9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,18 +29,6 @@ Global
 		{40550CA5-5C78-4B35-889D-947780F46EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40550CA5-5C78-4B35-889D-947780F46EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40550CA5-5C78-4B35-889D-947780F46EC3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{784F3A90-85E9-4994-A479-D520DBAFB55D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0682979-C197-4E43-BE6D-6199C0E0DAB8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52A002AE-430F-46A0-869C-C13B0FFCFEE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
